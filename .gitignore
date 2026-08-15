@@ -1,0 +1,11 @@
+node_modules
+out
+*.vsix
+.env
+
+CLAUDE.md
+.vscode
+.aava
+.vscodeignore
+
+.DS_Store

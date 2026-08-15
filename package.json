@@ -1,0 +1,78 @@
+{
+  "name": "comsaver",
+  "displayName": "Command Saver",
+  "description": "Save frequently used terminal commands, scripts",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.125.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "icon": "resources/icon.png",
+  "galleryBanner": {
+    "color": "#4338CA",
+    "theme": "dark"
+  },
+  "main": "./out/extension.js",
+  "activationEvents": [],
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "comsaver",
+          "title": "Command Saver",
+          "icon": "resources/activitybar-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "comsaver": [
+        {
+          "id": "comsaverCommandsView",
+          "name": "Commands",
+          "type": "webview",
+          "contextualTitle": "Command Saver"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "comsaver.addCommand",
+        "title": "Add Command",
+        "category": "Command Saver",
+        "icon": "$(add)"
+      },
+      {
+        "command": "comsaver.refresh",
+        "title": "Refresh",
+        "category": "Command Saver",
+        "icon": "$(refresh)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "comsaver.addCommand",
+          "when": "view == comsaverCommandsView",
+          "group": "navigation@1"
+        },
+        {
+          "command": "comsaver.refresh",
+          "when": "view == comsaverCommandsView",
+          "group": "navigation@2"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/vscode": "^1.125.0",
+    "typescript": "^5.6.0"
+  }
+}

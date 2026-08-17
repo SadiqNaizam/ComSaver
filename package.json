@@ -2,7 +2,7 @@
   "name": "comsaver",
   "displayName": "Command Saver",
   "description": "Save frequently used terminal commands, scripts",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "publisher": "whiteserpent",
   "repository": {
     "type": "git",

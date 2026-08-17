@@ -1,4 +1,4 @@
-name: Publish Extension
+name: Publish VSCode Extension
 
 # Trigger the workflow when a new tag is pushed
 on:

@@ -29,6 +29,6 @@ jobs:
       - name: Publish to Visual Studio Marketplace
         uses: lannonbr/vsce-action@4.0.0
         with:
-          args: "publish -p $VSCode_PAT"
+          args: "publish -p $VSCODE_PAT"
         env:
-          VSCE_TOKEN: ${{ secrets.VSCode_PAT }}
+          VSCE_TOKEN: ${{ secrets.VSCODE_PAT }}

@@ -1,0 +1,34 @@
+name: Publish Extension
+
+# Trigger the workflow when a new tag is pushed
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Check out the repository code
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # 2. Setup Node.js environment
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20 # Use the Node version required by your extension
+
+      # 3. Install dependencies
+      - name: Install Dependencies
+        run: npm ci
+
+      # 4. Package and Publish using a community action
+      - name: Publish to Visual Studio Marketplace
+        uses: lannonbr/vsce-action@4.0.0
+        with:
+          args: "publish -p $VSCode_PAT"
+        env:
+          VSCE_TOKEN: ${{ secrets.VSCode_PAT }}
